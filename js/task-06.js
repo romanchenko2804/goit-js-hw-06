@@ -3,12 +3,14 @@ const inputTextRef = document.querySelector("#validation-input");
 inputTextRef.addEventListener("blur", onInputBlur);
 
 function onInputBlur(event) {
-  inputTextRef.classList.add("invalid");
-
   if (
     event.currentTarget.value.length ===
     Number(inputTextRef.getAttribute("data-length"))
   ) {
-    inputTextRef.classList.replace("invalid", "valid");
+    inputTextRef.classList.add("valid");
+    inputTextRef.classList.remove("invalid");
+  } else {
+    inputTextRef.classList.add("invalid");
+    inputTextRef.classList.remove("valid");
   }
 }
